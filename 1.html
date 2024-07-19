@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            border: 2px solid red;
+            background-color: orange;
+        }
+        #slm{
+            border: 1px solid black
+        }
+    </style>
+</head>
+<body>
+    <input id="ad" type="text"><br>
+    <button onclick="btnTikla();">TIKLA</button><br><br>
+    <input id="searchBox" type="text"><br>
+    <button onclick="btnTikla2();">TIKLA</button>
+    <p>Lorem ipsum dolor sit amet.
+        <span>Lorem ipsum dolor sit amet.</span>
+    </p>
+    <div id="slm">Lorem ipsum dolor sit amet.</div>
+    <p class="paragraf">Lorem ipsum dolor sit amet.</p>
+    <p class="paragraf">Lorem ipsum dolor sit amet.</p>
+    <img src="https://cdn.pixabay.com/photo/2023/08/19/13/42/flowers-8200510_1280.jpg" alt="" id="img">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        // sayfa içeriği yüklendiğinde çalıştır
+        // 1. yol
+        $(document).ready(function(){
+            console.log($("p.paragraf"))
+        });
+        // 2. yol
+        $(function(){
+            $("#ad").val();
+        });
+
+        $("#ad").val(); // değerini oku
+        $("p")
+        $("p.paragraf")
+        $("p span")
+        function btnTikla(){
+            $("#ad").val("Merhaba JQuery"); // değerini değiştir    
+        }
+
+        // function btnTikla2(){
+        //     let searchBoxText = $("#searchBox");
+        //     if (searchBoxText.val()==""){
+        //         searchBoxText.css({
+        //             "border": "2px solid red",
+        //             "border-radius": "5px"
+        //         })
+        //     }
+        // }
+
+        function btnTikla2(){
+            let searchBoxText = $("#searchBox");
+            if (searchBoxText.val()==""){
+                searchBoxText.addClass("error");
+            }
+            else{
+                searchBoxText.removeClass("error");
+            }
+            $("#img").attr("src", "https://media.istockphoto.com/id/523761634/tr/fotoğraf/cute-panda-bear-climbing-in-tree.jpg?s=612x612&w=is&k=20&c=jxPHLSf8jSXDkHo-Jmm7ErC2YJk8z4-GmM76HUoiAaw=")
+            
+            $("div#slm").animate({
+                borderWidth: 4,
+                "border-radius": "10px",
+                height:"100px",
+                width:"400px"
+             });
+        }
+    </script>
+</body>
+</html>
