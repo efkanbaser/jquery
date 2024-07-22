@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .error{
+        .error {
             border: 2px solid black;
             background-color: red;
         }
-        div{
+
+        div.div {
             background-color: aqua;
             height: 100px;
         }
     </style>
 </head>
+
 <body>
-    
+
     <!-- Always write JQuery above other js files -->
     <!-- JQuery syntax, this guarantees everything on the page is loaded before running JQ codes 
 
@@ -32,33 +35,53 @@
         });
 
     -->
-    
+
     <div class="div div1">TIKLA</div><br>
     <div class="div div2">TIKLA</div><br>
     <div class="div div3" id="mesajKutusu">MESAJ KUTUSU</div><br>
     <button>BTN</button>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <div class="kapsayici">
+        <select name="" id="">
+            <option value="">ANKARA</option>
+            <option value="">ANKARA</option>
+            <option value="">ANKARA</option>
+        </select>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
-
-            $(".div1").click(function(){
-                
-            });
-
-            $(".div2").click(function(){
+            $("select").change(function () {
+                $("#mesajKutusu").text($("select").val());
 
             });
 
-            $(".div").click(function(){
+            $(".div").click(function () {
                 // alert("I'm a div")
-                if($(this).hasClass("error")){
-                    $(this).removeClass("error")
+                if ($(this).hasClass("error")) {
+                    $(this).removeClass("error");
                 }
-                else{
-                $(this).addClass("error")
+                else {
+                    $(this).addClass("error");
                 }
             });
+
+            // Code to create a button with an id of "deneme" when clicked on the tag with the class "div"            
+            $(".div").click(function () {
+                $("#mesajKutusu").html("<button id='deneme'>TIKLA</button>");
+
+            });
+            // Code to give the newly created button a function, because if you give it on runtime it won't work
+            $(document).on('click', '#deneme', function () {
+                alert("Ben deneme butonuyum");
+            })
+
+            $('.kapsayici').on('change', 'select', function(){
+                alert($(this).val())
+            })
+
         })
     </script>
 </body>
+
 </html>
