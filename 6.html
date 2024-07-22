@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="searchbox" type="text">
+    <input type="button" id="btnAra" value="Ara">
+
+    <div class="articles">
+        <div class="article">
+            <a href="#">
+                <h1>html</h1>
+            </a>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate delectus ab provident vitae nemo
+            inventore sunt incidunt exercitationem facere velit atque, at natus alias, quibusdam blanditiis eum.
+            Consequuntur, veniam quidem.
+        </div>
+
+        <div class="article">
+            <a href="#">
+                <h1>css</h1>
+            </a>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, illum! Repellat, velit vitae assumenda
+            dolore unde excepturi animi numquam architecto quis! Iusto dignissimos totam eveniet at voluptatum cum,
+            eum enim!
+        </div>
+
+        <div class="article">
+            <a href="#">
+                <h1>js</h1>
+            </a>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maxime explicabo, illum vel nesciunt sit
+            minus. Alias debitis sed quo illum cupiditate quaerat minima, iure nam harum accusantium recusandae
+            delectus!
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnAra").click(function () {
+
+                let searchboxText = $("#searchbox").val();
+                if (searchboxText == null) {
+                    $("#searchbox").addClass();
+                }
+                else {
+                    $(".article").each(function () {
+                        let titleTag = $(this).find("a h1");
+                        let titleText = titleTag.text();
+                        if (titleText.toLowerCase() == searchboxText.toLowerCase()) {
+                            titleTag.css({ color: "red" });
+                        }
+                        else {
+                            titleTag.css({ color: "black" })
+                        }
+                    });
+                }
+            })
+        });
+
+    </script>
+</body>
+
+</html>
